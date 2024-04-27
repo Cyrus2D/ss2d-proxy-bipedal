@@ -624,6 +624,18 @@ void GrpcAgentPlayer::getActions() const
             agent->setNeckAction(new Neck_ScanField());
             break;
         }
+        case PlayerAction::kBipedalDash:
+        {
+            const auto &bipedalDash = action.bipedal_dash();
+            agent->doBipedalDash(
+                bipedalDash.power_l(),
+                bipedalDash.dir_l(),
+                bipedalDash.power_r(),
+                bipedalDash.dir_r()
+            );
+            body_action_done++;
+            break;
+        }
 
             //                HeliosChainAction helios_chain_action = 59;
         default:

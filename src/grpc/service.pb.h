@@ -125,6 +125,9 @@ extern Bhv_NeckBodyToPointDefaultTypeInternal _Bhv_NeckBodyToPoint_default_insta
 class Bhv_ScanField;
 struct Bhv_ScanFieldDefaultTypeInternal;
 extern Bhv_ScanFieldDefaultTypeInternal _Bhv_ScanField_default_instance_;
+class BipedalDash;
+struct BipedalDashDefaultTypeInternal;
+extern BipedalDashDefaultTypeInternal _BipedalDash_default_instance_;
 class Body_AdvanceBall;
 struct Body_AdvanceBallDefaultTypeInternal;
 extern Body_AdvanceBallDefaultTypeInternal _Body_AdvanceBall_default_instance_;
@@ -485,6 +488,8 @@ template <>
 ::protos::Bhv_NeckBodyToPoint* Arena::CreateMaybeMessage<::protos::Bhv_NeckBodyToPoint>(Arena*);
 template <>
 ::protos::Bhv_ScanField* Arena::CreateMaybeMessage<::protos::Bhv_ScanField>(Arena*);
+template <>
+::protos::BipedalDash* Arena::CreateMaybeMessage<::protos::BipedalDash>(Arena*);
 template <>
 ::protos::Body_AdvanceBall* Arena::CreateMaybeMessage<::protos::Body_AdvanceBall>(Arena*);
 template <>
@@ -20457,6 +20462,197 @@ class HeliosCommunicaion final :
   friend struct ::TableStruct_service_2eproto;
 };// -------------------------------------------------------------------
 
+class BipedalDash final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:protos.BipedalDash) */ {
+ public:
+  inline BipedalDash() : BipedalDash(nullptr) {}
+  ~BipedalDash() override;
+  template<typename = void>
+  explicit PROTOBUF_CONSTEXPR BipedalDash(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  BipedalDash(const BipedalDash& from);
+  BipedalDash(BipedalDash&& from) noexcept
+    : BipedalDash() {
+    *this = ::std::move(from);
+  }
+
+  inline BipedalDash& operator=(const BipedalDash& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline BipedalDash& operator=(BipedalDash&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const BipedalDash& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const BipedalDash* internal_default_instance() {
+    return reinterpret_cast<const BipedalDash*>(
+               &_BipedalDash_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    107;
+
+  friend void swap(BipedalDash& a, BipedalDash& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(BipedalDash* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(BipedalDash* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  BipedalDash* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<BipedalDash>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const BipedalDash& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const BipedalDash& from) {
+    BipedalDash::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  ::size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(BipedalDash* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::absl::string_view FullMessageName() {
+    return "protos.BipedalDash";
+  }
+  protected:
+  explicit BipedalDash(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kPowerLFieldNumber = 1,
+    kDirLFieldNumber = 2,
+    kPowerRFieldNumber = 3,
+    kDirRFieldNumber = 4,
+  };
+  // float power_l = 1;
+  void clear_power_l() ;
+  float power_l() const;
+  void set_power_l(float value);
+
+  private:
+  float _internal_power_l() const;
+  void _internal_set_power_l(float value);
+
+  public:
+  // float dir_l = 2;
+  void clear_dir_l() ;
+  float dir_l() const;
+  void set_dir_l(float value);
+
+  private:
+  float _internal_dir_l() const;
+  void _internal_set_dir_l(float value);
+
+  public:
+  // float power_r = 3;
+  void clear_power_r() ;
+  float power_r() const;
+  void set_power_r(float value);
+
+  private:
+  float _internal_power_r() const;
+  void _internal_set_power_r(float value);
+
+  public:
+  // float dir_r = 4;
+  void clear_dir_r() ;
+  float dir_r() const;
+  void set_dir_r(float value);
+
+  private:
+  float _internal_dir_r() const;
+  void _internal_set_dir_r(float value);
+
+  public:
+  // @@protoc_insertion_point(class_scope:protos.BipedalDash)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    float power_l_;
+    float dir_l_;
+    float power_r_;
+    float dir_r_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_service_2eproto;
+};// -------------------------------------------------------------------
+
 class PlayerAction final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:protos.PlayerAction) */ {
  public:
@@ -20573,6 +20769,7 @@ class PlayerAction final :
     kHeliosSetPlay = 62,
     kHeliosPenalty = 63,
     kHeliosCommunication = 64,
+    kBipedalDash = 65,
     ACTION_NOT_SET = 0,
   };
 
@@ -20581,7 +20778,7 @@ class PlayerAction final :
                &_PlayerAction_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    107;
+    108;
 
   friend void swap(PlayerAction& a, PlayerAction& b) {
     a.Swap(&b);
@@ -20717,6 +20914,7 @@ class PlayerAction final :
     kHeliosSetPlayFieldNumber = 62,
     kHeliosPenaltyFieldNumber = 63,
     kHeliosCommunicationFieldNumber = 64,
+    kBipedalDashFieldNumber = 65,
   };
   // .protos.Dash dash = 1;
   bool has_dash() const;
@@ -21870,6 +22068,24 @@ class PlayerAction final :
   void unsafe_arena_set_allocated_helios_communication(
       ::protos::HeliosCommunicaion* helios_communication);
   ::protos::HeliosCommunicaion* unsafe_arena_release_helios_communication();
+  // .protos.BipedalDash bipedal_dash = 65;
+  bool has_bipedal_dash() const;
+  private:
+  bool _internal_has_bipedal_dash() const;
+
+  public:
+  void clear_bipedal_dash() ;
+  const ::protos::BipedalDash& bipedal_dash() const;
+  PROTOBUF_NODISCARD ::protos::BipedalDash* release_bipedal_dash();
+  ::protos::BipedalDash* mutable_bipedal_dash();
+  void set_allocated_bipedal_dash(::protos::BipedalDash* bipedal_dash);
+  private:
+  const ::protos::BipedalDash& _internal_bipedal_dash() const;
+  ::protos::BipedalDash* _internal_mutable_bipedal_dash();
+  public:
+  void unsafe_arena_set_allocated_bipedal_dash(
+      ::protos::BipedalDash* bipedal_dash);
+  ::protos::BipedalDash* unsafe_arena_release_bipedal_dash();
   void clear_action();
   ActionCase action_case() const;
   // @@protoc_insertion_point(class_scope:protos.PlayerAction)
@@ -21939,6 +22155,7 @@ class PlayerAction final :
   void set_has_helios_set_play();
   void set_has_helios_penalty();
   void set_has_helios_communication();
+  void set_has_bipedal_dash();
 
   inline bool has_action() const;
   inline void clear_has_action();
@@ -22014,6 +22231,7 @@ class PlayerAction final :
       ::protos::HeliosSetPlay* helios_set_play_;
       ::protos::HeliosPenalty* helios_penalty_;
       ::protos::HeliosCommunicaion* helios_communication_;
+      ::protos::BipedalDash* bipedal_dash_;
     } action_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::uint32_t _oneof_case_[1];
@@ -22079,7 +22297,7 @@ class PlayerActions final :
                &_PlayerActions_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    108;
+    109;
 
   friend void swap(PlayerActions& a, PlayerActions& b) {
     a.Swap(&b);
@@ -22244,7 +22462,7 @@ class ChangePlayerType final :
                &_ChangePlayerType_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    109;
+    110;
 
   friend void swap(ChangePlayerType& a, ChangePlayerType& b) {
     a.Swap(&b);
@@ -22410,7 +22628,7 @@ class DoHeliosSubstitute final :
                &_DoHeliosSubstitute_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    110;
+    111;
 
   friend void swap(DoHeliosSubstitute& a, DoHeliosSubstitute& b) {
     a.Swap(&b);
@@ -22534,7 +22752,7 @@ class DoHeliosSayPlayerTypes final :
                &_DoHeliosSayPlayerTypes_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    111;
+    112;
 
   friend void swap(DoHeliosSayPlayerTypes& a, DoHeliosSayPlayerTypes& b) {
     a.Swap(&b);
@@ -22666,7 +22884,7 @@ class CoachAction final :
                &_CoachAction_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    112;
+    113;
 
   friend void swap(CoachAction& a, CoachAction& b) {
     a.Swap(&b);
@@ -22883,7 +23101,7 @@ class CoachActions final :
                &_CoachActions_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    113;
+    114;
 
   friend void swap(CoachActions& a, CoachActions& b) {
     a.Swap(&b);
@@ -23047,7 +23265,7 @@ class DoKickOff final :
                &_DoKickOff_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    114;
+    115;
 
   friend void swap(DoKickOff& a, DoKickOff& b) {
     a.Swap(&b);
@@ -23172,7 +23390,7 @@ class DoMoveBall final :
                &_DoMoveBall_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    115;
+    116;
 
   friend void swap(DoMoveBall& a, DoMoveBall& b) {
     a.Swap(&b);
@@ -23348,7 +23566,7 @@ class DoMovePlayer final :
                &_DoMovePlayer_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    116;
+    117;
 
   friend void swap(DoMovePlayer& a, DoMovePlayer& b) {
     a.Swap(&b);
@@ -23543,7 +23761,7 @@ class DoRecover final :
                &_DoRecover_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    117;
+    118;
 
   friend void swap(DoRecover& a, DoRecover& b) {
     a.Swap(&b);
@@ -23668,7 +23886,7 @@ class DoChangeMode final :
                &_DoChangeMode_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    118;
+    119;
 
   friend void swap(DoChangeMode& a, DoChangeMode& b) {
     a.Swap(&b);
@@ -23835,7 +24053,7 @@ class DoChangePlayerType final :
                &_DoChangePlayerType_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    119;
+    120;
 
   friend void swap(DoChangePlayerType& a, DoChangePlayerType& b) {
     a.Swap(&b);
@@ -24024,7 +24242,7 @@ class TrainerAction final :
                &_TrainerAction_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    120;
+    121;
 
   friend void swap(TrainerAction& a, TrainerAction& b) {
     a.Swap(&b);
@@ -24304,7 +24522,7 @@ class TrainerActions final :
                &_TrainerActions_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    121;
+    122;
 
   friend void swap(TrainerActions& a, TrainerActions& b) {
     a.Swap(&b);
@@ -24469,7 +24687,7 @@ class ServerParam final :
                &_ServerParam_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    122;
+    123;
 
   friend void swap(ServerParam& a, ServerParam& b) {
     a.Swap(&b);
@@ -27426,7 +27644,7 @@ class PlayerParam final :
                &_PlayerParam_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    123;
+    124;
 
   friend void swap(PlayerParam& a, PlayerParam& b) {
     a.Swap(&b);
@@ -27929,7 +28147,7 @@ class PlayerType final :
                &_PlayerType_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    124;
+    125;
 
   friend void swap(PlayerType& a, PlayerType& b) {
     a.Swap(&b);
@@ -28479,7 +28697,7 @@ class Empty final :
                &_Empty_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    125;
+    126;
 
   friend void swap(Empty& a, Empty& b) {
     a.Swap(&b);
@@ -28603,7 +28821,7 @@ class InitMessageFromServer final :
                &_InitMessageFromServer_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    126;
+    127;
 
   friend void swap(InitMessageFromServer& a, InitMessageFromServer& b) {
     a.Swap(&b);
@@ -43248,6 +43466,90 @@ inline void HeliosChainAction::_internal_set_simple_shoot(bool value) {
 
 // -------------------------------------------------------------------
 
+// BipedalDash
+
+// float power_l = 1;
+inline void BipedalDash::clear_power_l() {
+  _impl_.power_l_ = 0;
+}
+inline float BipedalDash::power_l() const {
+  // @@protoc_insertion_point(field_get:protos.BipedalDash.power_l)
+  return _internal_power_l();
+}
+inline void BipedalDash::set_power_l(float value) {
+  _internal_set_power_l(value);
+  // @@protoc_insertion_point(field_set:protos.BipedalDash.power_l)
+}
+inline float BipedalDash::_internal_power_l() const {
+  return _impl_.power_l_;
+}
+inline void BipedalDash::_internal_set_power_l(float value) {
+  ;
+  _impl_.power_l_ = value;
+}
+
+// float dir_l = 2;
+inline void BipedalDash::clear_dir_l() {
+  _impl_.dir_l_ = 0;
+}
+inline float BipedalDash::dir_l() const {
+  // @@protoc_insertion_point(field_get:protos.BipedalDash.dir_l)
+  return _internal_dir_l();
+}
+inline void BipedalDash::set_dir_l(float value) {
+  _internal_set_dir_l(value);
+  // @@protoc_insertion_point(field_set:protos.BipedalDash.dir_l)
+}
+inline float BipedalDash::_internal_dir_l() const {
+  return _impl_.dir_l_;
+}
+inline void BipedalDash::_internal_set_dir_l(float value) {
+  ;
+  _impl_.dir_l_ = value;
+}
+
+// float power_r = 3;
+inline void BipedalDash::clear_power_r() {
+  _impl_.power_r_ = 0;
+}
+inline float BipedalDash::power_r() const {
+  // @@protoc_insertion_point(field_get:protos.BipedalDash.power_r)
+  return _internal_power_r();
+}
+inline void BipedalDash::set_power_r(float value) {
+  _internal_set_power_r(value);
+  // @@protoc_insertion_point(field_set:protos.BipedalDash.power_r)
+}
+inline float BipedalDash::_internal_power_r() const {
+  return _impl_.power_r_;
+}
+inline void BipedalDash::_internal_set_power_r(float value) {
+  ;
+  _impl_.power_r_ = value;
+}
+
+// float dir_r = 4;
+inline void BipedalDash::clear_dir_r() {
+  _impl_.dir_r_ = 0;
+}
+inline float BipedalDash::dir_r() const {
+  // @@protoc_insertion_point(field_get:protos.BipedalDash.dir_r)
+  return _internal_dir_r();
+}
+inline void BipedalDash::set_dir_r(float value) {
+  _internal_set_dir_r(value);
+  // @@protoc_insertion_point(field_set:protos.BipedalDash.dir_r)
+}
+inline float BipedalDash::_internal_dir_r() const {
+  return _impl_.dir_r_;
+}
+inline void BipedalDash::_internal_set_dir_r(float value) {
+  ;
+  _impl_.dir_r_ = value;
+}
+
+// -------------------------------------------------------------------
+
 // PlayerAction
 
 // .protos.Dash dash = 1;
@@ -47983,6 +48285,80 @@ inline ::protos::HeliosCommunicaion* PlayerAction::_internal_mutable_helios_comm
 inline ::protos::HeliosCommunicaion* PlayerAction::mutable_helios_communication() {
   ::protos::HeliosCommunicaion* _msg = _internal_mutable_helios_communication();
   // @@protoc_insertion_point(field_mutable:protos.PlayerAction.helios_communication)
+  return _msg;
+}
+
+// .protos.BipedalDash bipedal_dash = 65;
+inline bool PlayerAction::has_bipedal_dash() const {
+  return action_case() == kBipedalDash;
+}
+inline bool PlayerAction::_internal_has_bipedal_dash() const {
+  return action_case() == kBipedalDash;
+}
+inline void PlayerAction::set_has_bipedal_dash() {
+  _impl_._oneof_case_[0] = kBipedalDash;
+}
+inline void PlayerAction::clear_bipedal_dash() {
+  if (action_case() == kBipedalDash) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.action_.bipedal_dash_;
+    }
+    clear_has_action();
+  }
+}
+inline ::protos::BipedalDash* PlayerAction::release_bipedal_dash() {
+  // @@protoc_insertion_point(field_release:protos.PlayerAction.bipedal_dash)
+  if (action_case() == kBipedalDash) {
+    clear_has_action();
+    ::protos::BipedalDash* temp = _impl_.action_.bipedal_dash_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.action_.bipedal_dash_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::protos::BipedalDash& PlayerAction::_internal_bipedal_dash() const {
+  return action_case() == kBipedalDash
+      ? *_impl_.action_.bipedal_dash_
+      : reinterpret_cast<::protos::BipedalDash&>(::protos::_BipedalDash_default_instance_);
+}
+inline const ::protos::BipedalDash& PlayerAction::bipedal_dash() const {
+  // @@protoc_insertion_point(field_get:protos.PlayerAction.bipedal_dash)
+  return _internal_bipedal_dash();
+}
+inline ::protos::BipedalDash* PlayerAction::unsafe_arena_release_bipedal_dash() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:protos.PlayerAction.bipedal_dash)
+  if (action_case() == kBipedalDash) {
+    clear_has_action();
+    ::protos::BipedalDash* temp = _impl_.action_.bipedal_dash_;
+    _impl_.action_.bipedal_dash_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void PlayerAction::unsafe_arena_set_allocated_bipedal_dash(::protos::BipedalDash* bipedal_dash) {
+  clear_action();
+  if (bipedal_dash) {
+    set_has_bipedal_dash();
+    _impl_.action_.bipedal_dash_ = bipedal_dash;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:protos.PlayerAction.bipedal_dash)
+}
+inline ::protos::BipedalDash* PlayerAction::_internal_mutable_bipedal_dash() {
+  if (action_case() != kBipedalDash) {
+    clear_action();
+    set_has_bipedal_dash();
+    _impl_.action_.bipedal_dash_ = CreateMaybeMessage< ::protos::BipedalDash >(GetArenaForAllocation());
+  }
+  return _impl_.action_.bipedal_dash_;
+}
+inline ::protos::BipedalDash* PlayerAction::mutable_bipedal_dash() {
+  ::protos::BipedalDash* _msg = _internal_mutable_bipedal_dash();
+  // @@protoc_insertion_point(field_mutable:protos.PlayerAction.bipedal_dash)
   return _msg;
 }
 
