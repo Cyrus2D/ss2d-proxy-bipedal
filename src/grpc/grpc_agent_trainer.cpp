@@ -6,6 +6,7 @@
 
 #include <chrono>
 #include <rcsc/common/logger.h>
+#include "state_generator.h"
 using std::chrono::duration;
 using std::chrono::duration_cast;
 using std::chrono::high_resolution_clock;
@@ -48,7 +49,9 @@ void GrpcAgentTrainer::init(rcsc::TrainerAgent *agent,
 void GrpcAgentTrainer::getActions() const
 {
     auto agent = M_agent;
+    std::cout << "BA" << std::endl;
     State state = generateState();
+    std::cout << "BB" << std::endl;
     state.set_agent_type(protos::AgentType::TrainerT);
     protos::TrainerActions actions;
     ClientContext context;
@@ -59,6 +62,8 @@ void GrpcAgentTrainer::getActions() const
                   << std::endl;
         return;
     }
+    std::cout << "BC" << std::endl;
+
 
     for (int i = 0; i < actions.actions_size(); i++)
     {
@@ -269,13 +274,14 @@ void GrpcAgentTrainer::getActions() const
         }
         }
     }
+    LOG("Trainer: DONE");
 }
 
 State GrpcAgentTrainer::generateState() const
 {
     auto &wm = M_agent->world();
-    // WorldModel * worldModel = StateGenerator::convertCoachWorldModel(wm);
+    WorldModel * worldModel = StateGenerator::convertCoachWorldModel(wm);
     State state;
-    // state.set_allocated_world_model(worldModel);
+    state.set_allocated_world_model(worldModel);
     return state;
 }

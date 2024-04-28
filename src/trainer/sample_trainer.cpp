@@ -133,11 +133,14 @@ SampleTrainer::actionImpl()
         doTeamNames();
         return;
     }
-
+    std::cout << "trainer: Time: " << world().time() << std::endl;
     //////////////////////////////////////////////////////////////////
     // Add your code here.
+    std::cout << "A" << std::endl;
     M_grpc_agent.sendParams(this->config().offlineLogging());
+    std::cout << "B" << std::endl;
     M_grpc_agent.getActions();
+    std::cout << "C" << std::endl;
     return;
     //sampleAction();
     //recoverForever();

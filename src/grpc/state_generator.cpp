@@ -261,18 +261,24 @@ void StateGenerator::updatePlayerObject(protos::Player *p, const rcsc::PlayerObj
  */
 void StateGenerator::updatePlayerObject(protos::Player *p, const rcsc::CoachPlayerObject *player)
 {
+    std::cout << "BABA" << std::endl;
     p->set_allocated_position(convertVector2D(player->pos()));
     p->set_allocated_velocity(convertVector2D(player->vel()));
     p->set_side(convertSide(player->side()));
     p->set_uniform_number(player->unum());
     p->set_is_goalie(player->goalie());
+    std::cout << "BABB" << std::endl;
     p->set_body_direction(static_cast<float>(player->body().degree()));
     p->set_face_direction(static_cast<float>(player->face().degree()));
     p->set_point_to_direction(static_cast<float>(player->pointtoAngle().degree()));
     p->set_is_kicking(player->isKicking());
     p->set_ball_reach_steps(player->ballReachStep());
     p->set_is_tackling(player->isTackling());
-    p->set_type_id(player->playerTypePtr()->id());
+    if (player->playerTypePtr() != nullptr)
+        p->set_type_id(player->playerTypePtr()->id());
+    else
+        p->set_type_id(0);
+    std::cout << "BABC" << std::endl;
 }
 
 /**
@@ -476,21 +482,29 @@ protos::WorldModel *StateGenerator::convertWorldModel(const rcsc::WorldModel &wm
 protos::WorldModel *StateGenerator::convertCoachWorldModel(const rcsc::CoachWorldModel &wm)
 {
     auto *res = new WorldModel();
+    std::cout << "BAA" << std::endl;
     res->set_allocated_our_team_name(new std::string(wm.ourTeamName()));
     res->set_allocated_their_team_name(new std::string(wm.theirTeamName()));
     res->set_our_side(convertSide(wm.ourSide()));
     res->set_last_set_play_start_time(wm.lastSetPlayStartTime().cycle());
     res->set_allocated_ball(convertBall(wm.ball()));
+    std::cout << "BAB" << std::endl;
     for (auto player : wm.teammates())
     {
+        if (player == nullptr)
+            continue;
         auto p = res->add_teammates();
         updatePlayerObject(p, player);
     }
+    std::cout << "BAC" << std::endl;
     for (auto player : wm.opponents())
     {
+        if (player == nullptr)
+            continue;
         auto p = res->add_opponents();
         updatePlayerObject(p, player);
     }
+    std::cout << "BAD" << std::endl;
     res->set_offside_line_x(wm.ourOffsideLineX());
     res->set_last_kick_side(convertSide(wm.lastKickerSide()));
     res->set_last_kicker_uniform_number(wm.lastKickerUnum());
@@ -498,11 +512,13 @@ protos::WorldModel *StateGenerator::convertCoachWorldModel(const rcsc::CoachWorl
     res->set_game_mode_type(converGameMode(wm.gameMode().type()));
     res->set_left_team_score(wm.gameMode().scoreLeft());
     res->set_right_team_score(wm.gameMode().scoreRight());
+    std::cout << "BAE" << std::endl;
     res->set_is_our_set_play(wm.gameMode().isOurSetPlay(wm.ourSide()));
     res->set_is_their_set_play(wm.gameMode().isTheirSetPlay(wm.ourSide()));
     res->set_stoped_cycle(wm.gameMode().time().stopped());
     res->set_our_team_score(wm.ourSide() == rcsc::SideID::LEFT ? wm.gameMode().scoreLeft() : wm.gameMode().scoreRight());
     res->set_their_team_score(wm.ourSide() == rcsc::SideID::LEFT ? wm.gameMode().scoreRight() : wm.gameMode().scoreLeft());
     res->set_is_penalty_kick_mode(wm.gameMode().isPenaltyKickMode());
+    std::cout << "BAF" << std::endl;
     return res;
 }
